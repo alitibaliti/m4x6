@@ -1,0 +1,7 @@
+if SHIELD_M4X6
+
+# Name must be less than 16 characters long!
+config ZMK_KEYBOARD_NAME
+    default "m4x6"
+
+endif
