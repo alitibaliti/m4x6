@@ -1,60 +1,27 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0: Base Layer (Exactly 24 keys)
         default_layer {
             display-name = "Base";
             bindings = <
-                &kp A  &kp B  &kp C  &kp D  &kp E  &kp F
-                &kp G  &kp H  &kp I  &kp J  &kp K  &kp L
-                &kp M  &kp N  &kp O  &kp P  &kp Q  &kp R
-                &kp S  &kp T  &kp U  &kp V  &kp W  &lt 1 X
+                &kp A &kp B &kp C &kp D &kp E &kp F
+                &kp G &kp H &kp I &kp J &kp K &kp L
+                &kp M &kp N &kp O &kp P &kp Q &kp R
+                &kp S &kp T &kp U &kp V &kp W &mo 1
             >;
         };
 
-        // Layer 1: Connection Layer (Exactly 24 keys)
         connection_layer {
-            display-name = "Conn";
+            display-name = "Connection";
             bindings = <
                 &bootloader &trans      &trans      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2
                 &trans      &trans      &trans      &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5
                 &trans      &trans      &trans      &bt BT_SEL 6 &bt BT_SEL 7 &bt BT_SEL 8
                 &trans      &trans      &trans      &bt BT_DISC  &bt BT_CLR   &trans
-            >;
-        };
-    };
-};#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
-
-/ {
-    keymap {
-        compatible = "zmk,keymap";
-
-        // Layer 0: Your standard typing layer
-        default_layer {
-            display-name = "Base";
-            bindings = <
-                &kp A  &kp B  &kp C  &kp D  &kp E  &kp F
-                &kp G  &kp H  &kp I  &kp J  &kp K  &kp L
-                &kp M  &kp N  &kp O  &kp P  &kp Q  &kp R
-                &kp S  &kp T  &kp U  &kp V  &kp W  &lt 1 X
-            >;
-        };
-
-        // Layer 1: Active ONLY while holding down the X key
-        connection_layer {
-            display-name = "Conn";
-            bindings = <
-                &bootloader &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
-                &trans      &trans  &trans  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5
-                &trans      &trans  &trans  &bt BT_SEL 6  &bt BT_SEL 7  &bt BT_SEL 8
-                &trans      &trans  &trans  &bt BT_DISC   &bt BT_CLR    &trans
             >;
         };
     };
