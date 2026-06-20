@@ -1,17 +1,89 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 
 / {
+    macros {
+        // PC Base Macros (Switches profile and updates base layer to PC)
+        to_pc_0: to_pc_0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>, <&to 0>; };
+        to_pc_1: to_pc_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>, <&to 0>; };
+        to_pc_2: to_pc_2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 2>, <&to 0>; };
+        to_pc_3: to_pc_3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 3>, <&to 0>; };
+        to_pc_4: to_pc_4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 4>, <&to 0>; };
+        to_pc_5: to_pc_5 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 5>, <&to 0>; };
+
+        // Android Base Macros (Switches profile and updates base layer to Android)
+        to_and_6: to_and_6 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 6>, <&to 1>; };
+        to_and_7: to_and_7 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 7>, <&to 1>; };
+        to_and_8: to_and_8 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 8>, <&to 1>; };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            display-name = "Base";
+        // Layer 0: PC Base Layer
+        pc_base {
+            display-name = "PC Base";
             bindings = <
-                &kp A &kp B &kp C &kp D &kp E &kp F
-                &kp G &kp H &kp I &kp J &kp K &kp L
-                &kp M &kp N &kp O &kp P &kp Q &kp R
-                &kp S &kp T &kp U &kp V &kp W &kp X
+                &kp A      &kp PG_UP  &kp C      &kp N1     &kp N2     &kp N3
+                &kp G      &kp PG_DN  &kp I      &kp N4     &kp N5     &kp N6
+                &kp M      &kp UP     &kp N0     &kp N7     &kp N8     &kp N9
+                &kp RIGHT  &kp DOWN   &kp LEFT   &kp V      &kp W      &lt 4 X
+            >;
+        };
+
+        // Layer 1: Android Base Layer
+        android_base {
+            display-name = "Android";
+            bindings = <
+                &kp A      &kp PG_UP  &kp C      &kp N1     &kp N2     &kp N3
+                &kp G      &kp PG_DN  &kp I      &kp N4     &kp N5     &kp N6
+                &kp M      &kp UP     &kp N0     &kp N7     &kp N8     &kp N9
+                &kp RIGHT  &kp DOWN   &kp LEFT   &kp V      &kp W      &lt 5 X
+            >;
+        };
+
+        // Layer 2: PC Layer 2
+        pc_layer_2 {
+            display-name = "PC L2";
+            bindings = <
+                &trans     &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans
+            >;
+        };
+
+        // Layer 3: Android Layer 2
+        android_layer_2 {
+            display-name = "And L2";
+            bindings = <
+                &trans     &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans
+            >;
+        };
+
+        // Layer 4: PC Bluetooth Overlay (Active when holding X on PC layer)
+        pc_bt {
+            display-name = "PC BT";
+            bindings = <
+                &bootloader &trans     &trans     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2
+                &trans      &trans     &trans     &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5
+                &trans      &trans     &trans     &to_and_6    &to_and_7    &to_and_8
+                &trans      &trans     &trans     &bt BT_DISC  &bt BT_CLR   &trans
+            >;
+        };
+
+        // Layer 5: Android Bluetooth Overlay (Active when holding X on Android layer)
+        android_bt {
+            display-name = "And BT";
+            bindings = <
+                &bootloader &trans     &trans     &to_pc_0     &to_pc_1     &to_pc_2
+                &trans      &trans     &trans     &to_pc_3     &to_pc_4     &to_pc_5
+                &trans      &trans     &trans     &bt BT_SEL 6 &bt BT_SEL 7 &bt BT_SEL 8
+                &trans      &trans     &trans     &bt BT_DISC  &bt BT_CLR   &trans
             >;
         };
     };
