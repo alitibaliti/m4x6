@@ -9,8 +9,8 @@
 #define CONN 3
 
 // Reserved layers for future expansion
-#define RSV1 4
-#define RSV2 5
+// #define RSV1 4
+// #define RSV2 5
 
 / {
     keymap {
@@ -58,24 +58,24 @@
             >;
         };
 
-        // LAYER 4: RESERVED 1
-        rsv1_layer {
-            bindings = <
-                &trans  &trans  &trans    &trans  &trans  &trans
-                &trans  &trans  &trans    &trans  &trans  &trans
-                &trans  &trans  &trans    &trans  &trans  &trans
-                &trans  &trans  &trans    &trans  &trans  &trans
-            >;
-        };
+        // // LAYER 4: RESERVED 1
+        // rsv1_layer {
+        //     bindings = <
+        //         &trans  &trans  &trans    &trans  &trans  &trans
+        //         &trans  &trans  &trans    &trans  &trans  &trans
+        //         &trans  &trans  &trans    &trans  &trans  &trans
+        //         &trans  &trans  &trans    &trans  &trans  &trans
+        //     >;
+        // };
 
-        // LAYER 5: RESERVED 2
-        rsv2_layer {
-            bindings = <
-                &trans  &trans  &trans    &trans  &trans  &trans
-                &trans  &trans  &trans    &trans  &trans  &trans
-                &trans  &trans  &trans    &trans  &trans  &trans
-                &trans  &trans  &trans    &trans  &trans  &trans
-            >;
-        };
+        // // LAYER 5: RESERVED 2
+        // rsv2_layer {
+        //     bindings = <
+        //         &trans  &trans  &trans    &trans  &trans  &trans
+        //         &trans  &trans  &trans    &trans  &trans  &trans
+        //         &trans  &trans  &trans    &trans  &trans  &trans
+        //         &trans  &trans  &trans    &trans  &trans  &trans
+        //     >;
+        // };
     };
 };
